@@ -1,0 +1,110 @@
+basePath: /
+definitions:
+  main.Item:
+    properties:
+      description:
+        type: string
+      itemID:
+        type: string
+      quantity:
+        type: integer
+    type: object
+  main.Order:
+    properties:
+      customerName:
+        type: string
+      items:
+        items:
+          $ref: '#/definitions/main.Item'
+        type: array
+      oderId:
+        type: string
+      orderedAt:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: soberkoder@swagger.io
+    name: API Support
+  description: This is a sample service for managing orders
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Orders API
+  version: "1.0"
+paths:
+  /orders:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all orders
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Order'
+      summary: Get details of all orders
+      tags:
+      - orders
+    post:
+      consumes:
+      - application/json
+      description: Create new order
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Order'
+      summary: Create new order
+      tags:
+      - orders
+  /orders/orderId:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a specific order
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Order'
+      summary: Delete a specific order
+      tags:
+      - orders
+    get:
+      consumes:
+      - application/json
+      description: Get details of a specific order
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Order'
+      summary: Get details of a specific order
+      tags:
+      - orders
+    put:
+      consumes:
+      - application/json
+      description: Update a specific order
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Order'
+      summary: Update a specific order
+      tags:
+      - orders
+swagger: "2.0"
